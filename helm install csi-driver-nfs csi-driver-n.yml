@@ -1,0 +1,7 @@
+helm install csi-driver-nfs csi-driver-nfs/csi-driver-nfs --version v4.6.0 \
+  --namespace csi-driver-nfs \
+  --set controller.runOnControlPlane=true \
+  --set controller.replicas=2 \
+  --set controller.strategyType=RollingUpdate \
+  --set externalSnapshotter.enabled=true \
+  --set externalSnapshotter.customResourceDefinitions.enabled=false

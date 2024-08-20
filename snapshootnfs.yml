@@ -1,0 +1,11 @@
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshotClass
+metadata:
+  name: nfs-csi
+#  labels:
+#    velero.io/csi-volumesnapshot-class: "true"  # <----------- Label
+driver: nfs.csi.k8s.io       # <------------------------------ Driver
+parameters:
+  server: truenas.klgsys.com        # <------------------------------ NFS Server
+  share: /mnt/vl_extend/pv-okd    # <------------------------------ Share Path
+deletionPolicy: Delete
